@@ -81,6 +81,10 @@ $("#settings input, #settings select").on('change', function() {
 			$topscreen.attr('width', 400);
 			line2 = 'Copyright(C) 2019, AuroraWright';
 			break;
+		case 'b9s2017':
+			$topscreen.attr('width', 400);
+			line2 = 'Copyright(C) 2017, SciresM';
+			break;
 		case 'menuhax2015':
 			$topscreen.attr('width', 800);
 			line2 = 'Copyright(C) 2015, yellow8';
@@ -271,8 +275,9 @@ $('#downloadBIN').click(function() {
 		});
 
 		var canvasdata = $canvas.get(0).getContext('2d').getImageData(0, 0, width, height).data;
+		console.log(canvasdata); //Array of 0x00's ?!?
 		var filedata = '';
-		
+
 		for(var i = 0; i < canvasdata.length; i += 4)
 			filedata += String.fromCharCode(canvasdata[i+2], canvasdata[i+1], canvasdata[i]);
 
